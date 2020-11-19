@@ -87,14 +87,14 @@ class StudentNormalMixture(tf.keras.Model):
         return loss
     
     # save model
-    def save_model(self, filename):
+    def save(self, filename):
         
         f = open(filename, 'wb')
         pickle.dump([variable.numpy() for variable in self.trainable_variables], f)
         f.close()
         
     # load model
-    def load_model(self, filename):
+    def load(self, filename):
         
         f = open(filename, 'rb')
         trained_variables = pickle.load(f)
